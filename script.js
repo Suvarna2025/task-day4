@@ -53,7 +53,7 @@ console.log(oddNumbers([7,9,11,2,4]))
  //Arrow Function :
 
  var b=["My nAme is suVARna"];
-  tCase = (sri) => {
+  var tCase = (sri) => {
                    var rt= sri.toString();
                     var dt = rt.toLowerCase().split(" ");
                     for (var i = 0; i < sri.length; i++) {
@@ -61,7 +61,7 @@ console.log(oddNumbers([7,9,11,2,4]))
                     } 
                     return dt.join(' ');
                   }  
-                  console.log(tcase([b]));
+                  console.log(tCase([b]));
                           
 
 //3.Sum of all numbers in an array 
@@ -90,20 +90,22 @@ function addi(arry){
              }
              console.log(addi([1,2,3,4]));
 //Arrow:  
+pal=(abcd)=>{
 
- var d=[33,4,5,66];
-   su = (array)=>{
-             var sum3 = 0;
-                  for(var i = 0 ; i< array.length ; i++){
-                     sum3 = sum3 + array[i];
-                   }
-                   return sum3;
-                   }
-                   console.log(su([d]));
+  for(var i=0;i<abcd.length;i++){
+      var dta =abcd[i].split("").reverse().join("");
+  
+      if(abcd[i]==dta){
+          console.log(abcd[i]," is a palindrome")
+      }
+      else{
+          console.log(abcd[i],"is not a palindrome")
+      }}
+}
+pal(['madam','sir']);
 
-                   
 
-//   4)Return all the prime numbers in an array
+//  4.Return all the prime numbers in an array
    // Anonymous Function:
                
    var a = [5, 9, 63, 29, 35, 6, 55, 23]
@@ -159,36 +161,42 @@ function addi(arry){
     
     console.log(prime);
                   
-/*8//5)  Return all the palindromes in an array
+//5)  Return all the palindromes in an array
 
-function isPalindrome(N)
-    {
-        let str = "" + N;
-        let len = str.length;
-        for (let i = 0; i < parseInt(len / 2, 10); i++)
-        {
-            if (str[i] != str[len - 1 - i ])
-                return false;
-        }
-        return true;
-    }
+//Anonymous
+var resut=['mom','dad','son'];
+function palin(abcd){
+
+    for(var i=0;i<abcd.length;i++){
+        var dta =abcd[i].split("").reverse().join("");
     
-  //Anonymous Function : 
-   function palin(one,two)
-    {
-        // Traversing each element of the array
-        // and check if it is palindrome or not
-        for (let i = 0; i < two; i++)
-        {
-            let ans = isPalindrome(one[i]);
-            if (ans == false)
-                return false;
+        if(abcd[i]==dta){
+            console.log(abcd[i]," is a palindrome")
         }
-        return true;
-    }
+        else{
+            console.log(abcd[i],"is not a palindrome")
+        }}
+
+}
+palin(resut);
     
+  
     //IIFE : 
 
+    (function(abcd){
+
+      for(var i=0;i<abcd.length;i++){
+          var dta =abcd[i].split("").reverse().join("");
+      
+          if(abcd[i]==dta){
+              console.log(abcd[i]," is a palindrome")
+          }
+          else{
+              console.log(abcd[i],"is not a palindrome")
+          }}
+      
+  
+  })(['racecar','takecare']);
 
 //Arrow : 
 Palindrome = (arr, n) =>
@@ -202,10 +210,42 @@ Palindrome = (arr, n) =>
         }
         return true;
     }
-    console.log(Plaindrome(["dad",121,123]))
-    */
+    console.log(Palindrome(["dad",121,123]))
 
-//Q.Remove duplicates from an Array
+//6. Return median of two sorted arrays of the same size.
+//Anonumous function
+const s1=[1,2,3,4];
+const s2=[2,4,6,8];
+function median(s1,s2){
+    let s=[...s1,...s2];
+    s.sort((a,b)=>a-b);
+    let n=s.length;
+    if(n%2===0){
+        return((s[n/2]+s[n/2-1])/2)
+    }
+    else{
+        return(s[n/2])
+    }
+}
+console.log(median(s1,s2));
+//IIFE
+
+const s11=[1,2,3,4];
+const s12=[2,4,6,8];
+(function(s11,s12){
+    let s=[...s11,...s12];
+    s.sort((a,b)=>a-b);
+    let n=s.length;
+    if(n%2===0){
+        return((s[n/2]+s[n/2-1])/2)
+    }
+    else{
+        return(s[n/2])
+    }
+})(s11,s12);
+    
+
+//7.Remove duplicates from an Array
 //Anonymous Function :
 var value=[12,13,13,14,15];
  function dul(dupli){
@@ -213,14 +253,15 @@ var value=[12,13,13,14,15];
                         console.log(dup);
                       }console.log(dul([value]));
 
-//IIFE :                
+//IIFE :                const s1=[1,2,3,4];
+
 (function(dupli1){
   let dup1 = [...new Set(dupli1)];
         console.log(dup1);
        })([1,1,2,3,4])
                        
 
-//Q.Rotate an array by K times
+//8.Rotate an array by K times
 //Anonymous function 
 
 var val=[1,2,3,4,5]
@@ -241,7 +282,7 @@ function rot(li , ri){
    (function(ar, k){
 
     for(var i=0;i<k;i++){
-      ar.push(li[i])
+      ar.push(ar[i])
      }
      for(var i=0;i<k;i++){
       ar.shift()
