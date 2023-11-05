@@ -1,1 +1,1 @@
-autonomous function, IIFE and arrow functions
+Anonymous function, IIFE and Arrow functions
